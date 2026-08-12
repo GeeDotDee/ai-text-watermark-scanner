@@ -1,21 +1,32 @@
 {
   "name": "ai-text-watermark-scanner",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Dependency-free local scanner for hidden Unicode and removable text artifacts, with transparent code-point reporting.",
   "type": "module",
   "exports": "./src/index.mjs",
   "types": "./src/index.d.ts",
   "bin": {
-    "ai-watermark-scan": "./src/cli.mjs"
+    "ai-watermark-scan": "src/cli.mjs"
   },
-  "files": ["src", "README.md", "LICENSE"],
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "test": "node --test test/*.node.mjs"
   },
-  "keywords": ["ai", "watermark", "unicode", "privacy", "provenance", "zero-width"],
+  "keywords": [
+    "ai",
+    "watermark",
+    "unicode",
+    "privacy",
+    "provenance",
+    "zero-width"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GeeDotDee/ai-text-watermark-scanner"
+    "url": "git+https://github.com/GeeDotDee/ai-text-watermark-scanner.git"
   }
 }
