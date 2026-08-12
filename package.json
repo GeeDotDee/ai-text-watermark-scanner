@@ -11,7 +11,11 @@
   "files": [
     "src",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md",
+    "BENCHMARKS.md"
   ],
   "scripts": {
     "test": "node --test test/*.node.mjs"
