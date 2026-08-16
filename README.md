@@ -24,4 +24,4 @@ console.log(result.cleanedText);
 ai-watermark-scan draft.txt
 ```
 
-The package does not detect or claim to remove statistical model-level watermarks such as deployed provider token-sampling signals. Use [AI Text Watermark Checker](https://aitextwatermark.com) for the hosted scanner, reports, batch workflows, browser tools, and current provider guidance.
+The package does not detect or claim to remove statistical model-level watermarks such as deployed provider token-sampling signals. Use [AI Text Watermark Remover](https://aitextwatermark.com) for the hosted scanner, reports, batch workflows, browser tools, and current provider guidance.
