@@ -12,4 +12,4 @@ The scanner performs deterministic literal-character matching. Its benchmark goa
 | Mixed-script lookalikes | Report for review and do not rewrite |
 | Statistical provider watermarks | Return no authorship conclusion |
 
-Run `npm test` to reproduce the included fixtures. Hosted file, batch, report, and browser workflows are available at https://aitextwatermark.com.
+Run `npm test` to reproduce the included fixtures. The versioned public fixture set and rendered results are available at https://aitextwatermark.com/benchmarks/artifact-coverage. Browser answer-selection fixtures and limitations are published at https://aitextwatermark.com/extension/compatibility.
