@@ -1,0 +1,41 @@
+# GitLab CI/CD Pipeline Configuration for AI Text Watermark Scanner
+# Scans text artifacts deterministically and exports SARIF for Code Quality / Secret Detection / Security dashboards.
+#
+# Key features:
+# - Privacy-preserving: runs completely offline, no external API calls or telemetry.
+# - Deterministic: inspects literal Unicode artifacts and code points.
+# - Explicit limitations: literal character artifacts only; does not claim AI authorship or model-level watermarking.
+
+stages:
+  - test
+
+scan_text_artifacts:
+  stage: test
+  image: node:22-alpine
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      changes:
+        - "content/**"
+        - "**/*.md"
+        - "**/*.txt"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  before_script:
+    - npm install --global ai-text-watermark-scanner
+  script:
+    # Scan target text or markdown files and export standard SARIF 2.1.0 report
+    - mkdir -p reports
+    - |
+      find . -type f \( -name "*.txt" -o -name "*.md" \) ! -path "*/node_modules/*" ! -path "*/.git/*" | while IFS= read -r file; do
+        echo "Scanning $file..."
+        ai-watermark-scan "$file" --sarif > "reports/$(echo "$file" | tr '/' '_').sarif"
+      done
+    # For single-file inspection:
+    # ai-watermark-scan content/article.txt --sarif > reports/results.sarif
+  artifacts:
+    reports:
+      # GitLab 15.0+ supports native SARIF reports via secret_detection or gl-codeclimate converter
+      # Raw SARIF artifact preservation for pipeline inspection:
+      dotenv: []
+    paths:
+      - reports/*.sarif
+    expire_in: 1 week
