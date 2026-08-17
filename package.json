@@ -18,7 +18,8 @@
     "BENCHMARKS.md"
   ],
   "scripts": {
-    "test": "node --test test/*.node.mjs"
+    "test": "node --test test/*.node.mjs",
+    "build:demo": "node scripts/build-demo.mjs"
   },
   "keywords": [
     "ai",

@@ -1,0 +1,22 @@
+name: Scan text artifacts
+
+on:
+  pull_request:
+    paths:
+      - "content/**"
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --global ai-text-watermark-scanner
+      - run: ai-watermark-scan content/article.txt --sarif > results.sarif
+      - uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results.sarif

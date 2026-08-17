@@ -6,6 +6,8 @@
 
 Inspect and clean literal hidden text artifacts without rewriting the visible words.
 
+![Four-step demonstration of local hidden artifact inspection and cleaning](assets/demo.gif)
+
 A dependency-free, local-first JavaScript scanner for literal hidden Unicode and removable formatting artifacts. It reports exact code points and locations, creates a conservative cleaned copy, and makes no authorship claim.
 
 ## Why this exists
@@ -77,6 +79,12 @@ ai-watermark-scan content.txt --sarif > results.sarif
 ```
 
 Upload `results.sarif` to GitHub Code Scanning or another SARIF-compatible system. Findings remain deterministic and reviewable.
+
+## Integration examples
+
+- [Node.js](examples/node.mjs)
+- [Hosted scan API](examples/api.mjs)
+- [GitHub Actions and SARIF](examples/github-actions.yml)
 
 ## Choosing the right tool
 
