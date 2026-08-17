@@ -6,6 +6,16 @@
 
 Inspect and clean literal hidden text artifacts without rewriting the visible words.
 
+## Want the browser extension?
+
+Use [AI Text Watermark Remover for Chrome](https://chromewebstore.google.com/detail/ai-text-watermark-checker/dmfmcggpljjhnopgjcdbmpalmcdnohan) to clean supported hidden artifacts when copying AI replies or highlighted text. The extension runs locally and keeps the copy workflow simple.
+
+- [Install the Chrome extension](https://chromewebstore.google.com/detail/ai-text-watermark-checker/dmfmcggpljjhnopgjcdbmpalmcdnohan)
+- [See supported AI sites and browser compatibility](https://aitextwatermark.com/extension/compatibility)
+- [Use the full web scanner and batch tools](https://aitextwatermark.com)
+
+This repository contains the open-source scanning engine, CLI, fixtures, SARIF integration, and developer examples. The browser extension is a separate product with its own release version.
+
 ![Four-step demonstration of local hidden artifact inspection and cleaning](assets/demo.gif)
 
 [Open the demonstration GIF directly](https://github.com/GeeDotDee/ai-text-watermark-scanner/raw/main/assets/demo.gif)
