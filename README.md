@@ -95,6 +95,8 @@ Upload `results.sarif` to GitHub Code Scanning or another SARIF-compatible syste
 ## Integration examples
 
 - [Node.js](examples/node.mjs)
+- [Deno](examples/deno.ts)
+- [Bun](examples/bun.ts)
 - [Hosted scan API](examples/api.mjs)
 - [GitHub Actions and SARIF](examples/github-actions.yml)
 
