@@ -24,6 +24,14 @@ console.log(result.cleanedText);
 ai-watermark-scan draft.txt
 ```
 
+Export SARIF 2.1.0 for GitHub Code Scanning or another CI system:
+
+```bash
+ai-watermark-scan draft.txt --sarif > ai-text-watermark-results.sarif
+```
+
+SARIF output includes deterministic artifact findings, exact code points, severity, and source locations. It does not claim AI authorship or official model-level watermark detection.
+
 The package does not detect or claim to remove statistical model-level watermarks such as deployed provider token-sampling signals. Use [AI Text Watermark Remover](https://aitextwatermark.com) for the hosted scanner, reports, batch workflows, browser tools, and current provider guidance.
 
 ## Public verification

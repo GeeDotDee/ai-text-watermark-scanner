@@ -57,3 +57,40 @@ export function scanText(text) {
     ]
   };
 }
+
+function lineAndColumn(text, index) {
+  const before = text.slice(0, index);
+  const lines = before.split("\n");
+  return { startLine: lines.length, startColumn: lines.at(-1).length + 1 };
+}
+
+export function toSarif(result, options = {}) {
+  if (!result || !Array.isArray(result.findings)) throw new TypeError("result must be a scan result");
+  const sourceText = typeof options.sourceText === "string" ? options.sourceText : "";
+  const uri = options.uri || "stdin.txt";
+  const levels = { high: "error", medium: "warning", low: "note" };
+  const rules = result.findings.map((finding) => ({
+    id: `ai-text-artifact/${finding.kind}`,
+    name: finding.label,
+    shortDescription: { text: finding.label },
+    fullDescription: { text: "Literal text artifact detected. This is not proof of AI authorship or a statistical model watermark." },
+    defaultConfiguration: { level: levels[finding.risk] || "warning" },
+    properties: { removable: finding.removable, codePoints: finding.codePoints }
+  }));
+  const results = result.findings.flatMap((finding) => finding.occurrences.map((occurrence) => ({
+    ruleId: `ai-text-artifact/${finding.kind}`,
+    level: levels[finding.risk] || "warning",
+    message: { text: `${finding.label}: ${occurrence.codePoint}` },
+    locations: [{ physicalLocation: { artifactLocation: { uri }, region: lineAndColumn(sourceText, occurrence.index) } }],
+    properties: { removable: finding.removable, context: occurrence.context }
+  })));
+  return {
+    version: "2.1.0",
+    $schema: "https://json.schemastore.org/sarif-2.1.0.json",
+    runs: [{
+      tool: { driver: { name: "AI Text Watermark Scanner", version: "0.1.1", informationUri: "https://aitextwatermark.com", rules } },
+      results,
+      invocations: [{ executionSuccessful: true }]
+    }]
+  };
+}
