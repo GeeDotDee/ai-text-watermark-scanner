@@ -88,7 +88,7 @@ export function toSarif(result, options = {}) {
     version: "2.1.0",
     $schema: "https://json.schemastore.org/sarif-2.1.0.json",
     runs: [{
-      tool: { driver: { name: "AI Text Watermark Scanner", version: "0.1.1", informationUri: "https://aitextwatermark.com", rules } },
+      tool: { driver: { name: "AI Text Watermark Scanner", version: "0.1.3", informationUri: "https://aitextwatermark.com", rules } },
       results,
       invocations: [{ executionSuccessful: true }]
     }]

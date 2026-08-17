@@ -1,6 +1,6 @@
 {
   "name": "ai-text-watermark-scanner",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Dependency-free local scanner for hidden Unicode and removable text artifacts, with transparent code-point reporting.",
   "type": "module",
   "exports": "./src/index.mjs",
@@ -10,6 +10,8 @@
   },
   "files": [
     "src",
+    "assets",
+    "examples",
     "README.md",
     "LICENSE",
     "SECURITY.md",
@@ -18,8 +20,7 @@
     "BENCHMARKS.md"
   ],
   "scripts": {
-    "test": "node --test test/*.node.mjs",
-    "build:demo": "node scripts/build-demo.mjs"
+    "test": "node --test test/*.node.mjs"
   },
   "keywords": [
     "ai",
