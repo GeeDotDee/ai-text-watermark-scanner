@@ -8,6 +8,8 @@ Inspect and clean literal hidden text artifacts without rewriting the visible wo
 
 ![Four-step demonstration of local hidden artifact inspection and cleaning](assets/demo.gif)
 
+[Open the demonstration GIF directly](https://github.com/GeeDotDee/ai-text-watermark-scanner/raw/main/assets/demo.gif)
+
 A dependency-free, local-first JavaScript scanner for literal hidden Unicode and removable formatting artifacts. It reports exact code points and locations, creates a conservative cleaned copy, and makes no authorship claim.
 
 ## Why this exists
